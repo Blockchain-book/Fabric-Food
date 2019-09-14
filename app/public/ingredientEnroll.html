@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>食材登记页面</title>
+    <link rel="stylesheet" type="text/css" href="main.css"/>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        function invoke(){
+            var ingId = $('#ingId').val();
+            var ingName = $('#ingName').val();
+            var price = $('#price').val();
+            var ownerId = $('#ownerID').val();
+            var data = {"ownerid" : ownerId,"ingredientid" : ingId,"ingredientname": ingName,"metadata":price}
+            $.ajax({
+                url : '/ingredients/enroll',
+                type : 'POST',
+                data : data,
+                success : function(status){
+                    if (status=='SUCCESS'){
+                        alert('成功登记食材'+ ingId);
+                    }else{
+                        alert('登记失败')
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+
+
+<body>
+<div id="login_frame">
+
+ 	<p class="label">食材</p>
+    <form>
+ 
+        <p><label class="label_input">食材ID :</label><input type="text" id="ingId" class="text_field"/></p>
+        <p><label class="label_input">食材名 :</label><input type="text" id="ingName" class="text_field"/></p>
+        <p><label class="label_input">价&nbsp;&nbsp;格 :</label><input type="text" id="price" class="text_field"/></p>
+        <p><label class="label_input">用户ID :</label><input type="text" id="onwerID" class="text_field"/></p>
+        <div id="login_control">
+            <input type="button" id="btn_login" onclick="invoke();" value="提交"/>
+        </div>
+    </form>
+</div>
+ 
+</body>
+</html>

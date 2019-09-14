@@ -1,0 +1,59 @@
+
+
+#login_frame {
+    width: 400px;
+    height: 260px;
+    padding: 13px;
+ 
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -200px;
+ 
+ 
+    border-radius: 10px;
+    text-align: center;
+}
+ 
+
+ 
+.label_input {
+    font-size: 14px;
+    font-family: 宋体;
+ 
+    width: 65px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+ 
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+ 
+.text_field {
+    width: 278px;
+    height: 28px;
+    
+}
+ 
+#btn_login {
+    font-size: 14px;
+    font-family: 宋体;
+ 
+    width: 120px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+	
+    border-radius: 6px;
+    
+}
+.label{
+	font-size: 20px;
+	font-family: 宋体;
+}
+ 
+#login_control {
+    padding: 0 28px;
+}
