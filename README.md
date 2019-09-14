@@ -4,8 +4,8 @@
 
 # 文件目录
 
-* `chaincode `  文件夹是项目链码
-* `app `  文件夹是fabric相关的SDK代码，实用Node.js编写
+* `chaincode`文件夹是项目链码
+* `app`文件夹是fabric相关的SDK代码，实用Node.js编写
 
 # 版本说明
 
