@@ -44,7 +44,7 @@ type IngredientHistory struct {
 	CurrentOwnerId string `json:"current_owner_id"`
 }
 
-// 外卖流通
+// 食品流通
 type FoodHistory struct {
 	FoodId         string `json:"food_id"`
 	OriginOwnerId  string `json:"origin_owner_id"`
@@ -283,7 +283,7 @@ func (c *IngredientsExchangeCC) foodEnroll(stub shim.ChaincodeStubInterface, arg
 		return shim.Error(fmt.Sprintf("update user error: %s", err))
 	}
 
-	//外卖变更历史
+	//食品变更历史
 	history := &FoodHistory{
 		FoodId:         foodId,
 		OriginOwnerId:  originOwner,
@@ -530,7 +530,7 @@ func (c *IngredientsExchangeCC) ingredientExchangeFood(stub shim.ChaincodeStubIn
 	return shim.Success(nil)
 }
 
-// 外卖变更
+// 食品变更
 func (c *IngredientsExchangeCC) foodExchange(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	//检查参数的个数
 	if len(args) != 3 {
@@ -561,7 +561,6 @@ func (c *IngredientsExchangeCC) foodExchange(stub shim.ChaincodeStubInterface, a
 		return shim.Error("food not found")
 	}
 
-	// 校验原始拥有者确实拥有当前变更的外卖
 	originOwner := new(User)
 	// 反序列化用户
 	if err := json.Unmarshal(originOwnerBytes, originOwner); err != nil {
@@ -597,7 +596,7 @@ func (c *IngredientsExchangeCC) foodExchange(stub shim.ChaincodeStubInterface, a
 		return shim.Error(fmt.Sprintf("update user error: %s", err))
 	}
 
-	// 当前拥有者插入外卖id
+	// 当前拥有者插入食品id
 	currentOwner := new(User)
 	// 反序列化用户
 	if err := json.Unmarshal(currentOwnerBytes, currentOwner); err != nil {
@@ -613,7 +612,7 @@ func (c *IngredientsExchangeCC) foodExchange(stub shim.ChaincodeStubInterface, a
 		return shim.Error(fmt.Sprintf("update user error: %s", err))
 	}
 
-	// 插入外卖变更记录
+	// 插入变更记录
 	history := &FoodHistory{
 		FoodId:         foodId,
 		OriginOwnerId:  ownerId,
@@ -684,7 +683,7 @@ func (c *IngredientsExchangeCC) queryIngredient(stub shim.ChaincodeStubInterface
 	return shim.Success(ingredientBytes)
 }
 
-//外卖查询
+//食品查询
 func (c *IngredientsExchangeCC) queryFood(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	//检查参数的个数
 	if len(args) != 1 {
