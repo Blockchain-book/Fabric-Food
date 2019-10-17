@@ -2,8 +2,11 @@
 
 ## 设置工作路径
 ``` bash
-export FABRIC_CFG_PATH=$GOPATH/src/github.com/hyperledger/fabric/takeout/deploy
+export FABRIC_CFG_PATH=$GOPATH/src/github.com/hyperledger/fabric-samples/food
 ```
+
+## 进入工作文件夹
+cd FABRIC_CFG_PATH
 
 ## 环境清理
 ``` bash
