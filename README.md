@@ -15,7 +15,9 @@ node.js版本是8.9.4
 
 # 快速使用
 
-将`chaincode`中的链码拷贝到`fabric-samples/chaincode`文件夹下，根据`memo.md`开启Fabric区块链网络。
+将food文件夹拷贝到fabric-samples文件夹中。
+
+在`fabric-samples/chaincode`文件夹下新建food文件夹，将`chaincode`中的链码拷贝到`food`文件夹下，根据`memo.md`开启Fabric区块链网络。
 
 进去app文件夹
 
