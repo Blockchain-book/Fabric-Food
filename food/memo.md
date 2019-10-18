@@ -46,6 +46,8 @@ peer chaincode install -n assets -v 1.0 -l golang -p github.com/food
 ## 链码实例化
 peer chaincode instantiate -o orderer.zjucst.com:7050 -C assetschannel -n assets -l golang -v 1.0 -c '{"Args":["init"]}'
 
+## 实例化后可以启动sdk
+
 ## 链码交互
 peer chaincode invoke -C assetschannel -n assets -c '{"Args":["userRegister", "user1", "user1"]}'
 peer chaincode invoke -C assetschannel -n assets -c '{"Args":["ingredientEnroll", "assets1", "assets1", "metadata", "user1"]}'
