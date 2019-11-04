@@ -7,6 +7,8 @@ var fs = require('fs');
 var util = require('util'); 
 var express = require('express')
 var bodyParser = require('body-parser')
+var dir = (__dirname)
+var ndir = dir.substr(0,dir.length-3)+'food' //获取项目目录
 
 var options = { 
     user_id: 'Admin@org1.zjucst.com', 
@@ -16,11 +18,11 @@ var options = {
     network_url: 'grpc://localhost:27051',
     peer_url: 'grpc://localhost:27051',
     orderer_url: 'grpc://localhost:7050',
-    privateKeyFolder:'/Users/galeno/go/src/github.com/hyperledger/fabric-samples/food/crypto-config/peerOrganizations/org1.zjucst.com/users/Admin@org1.zjucst.com/msp/keystore', 
-    signedCert:'/Users/galeno/go/src/github.com/hyperledger/fabric-samples/food/crypto-config/peerOrganizations/org1.zjucst.com/users/Admin@org1.zjucst.com/msp/signcerts/Admin@org1.zjucst.com-cert.pem', 
-    peer_tls_cacerts:'/Users/galeno/go/src/github.com/hyperledger/fabric-samples/food/crypto-config/peerOrganizations/org1.zjucst.com/peers/peer0.org1.zjucst.com/tls/ca.crt', 
-    orderer_tls_cacerts:'/Users/galeno/go/src/github.com/hyperledger/fabric-samples/food/crypto-config/ordererOrganizations/zjucst.com/orderers/orderer.zjucst.com/tls/ca.crt', 
-    tls_cacerts:'/Users/galeno/go/src/github.com/hyperledger/fabric-samples/food/crypto-config/peerOrganizations/org1.zjucst.com/peers/peer0.org1.zjucst.com/tls/ca.crt', 
+    privateKeyFolder: ndir + 'crypto-config/peerOrganizations/org1.zjucst.com/users/Admin@org1.zjucst.com/msp/keystore', 
+    signedCert: ndir + 'crypto-config/peerOrganizations/org1.zjucst.com/users/Admin@org1.zjucst.com/msp/signcerts/Admin@org1.zjucst.com-cert.pem', 
+    peer_tls_cacerts: ndir + 'crypto-config/peerOrganizations/org1.zjucst.com/peers/peer0.org1.zjucst.com/tls/ca.crt', 
+    orderer_tls_cacerts: ndir + 'crypto-config/ordererOrganizations/zjucst.com/orderers/orderer.zjucst.com/tls/ca.crt', 
+    tls_cacerts: ndir + 'crypto-config/peerOrganizations/org1.zjucst.com/peers/peer0.org1.zjucst.com/tls/ca.crt', 
     server_hostname: "peer0.org1.zjucst.com" 
 };
 
