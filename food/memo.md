@@ -2,7 +2,8 @@
 docker rm $(docker ps -aq)
 
 ## 设置工作路径
-export FABRIC_CFG_PATH=$GOPATH/src/github.com/hyperledger/fabric-samples/food
+export FABRICPATH=$GOPATH/src/github.com/hyperledger/fabric-samples
+export FABRIC_CFG_PATH=$FABRICPATH/trash
 
 
 ## 环境清理
@@ -10,18 +11,18 @@ rm -fr config/*
 rm -fr crypto-config/*
 
 ## 生成证书文件
-../bin/cryptogen generate --config=./crypto-config.yaml
+..$FABRICPATH/bin/cryptogen generate --config=./crypto-config.yaml
 
 ## 生成创世区块
-../bin/configtxgen -profile OneOrgOrdererGenesis -outputBlock ./config/genesis.block
+..$FABRICPATH/bin/configtxgen -profile OneOrgOrdererGenesis -outputBlock ./config/genesis.block
 
 ## 生成通道的创世交易
-../bin/configtxgen -profile TwoOrgChannel -outputCreateChannelTx ./config/mychannel.tx -channelID mychannel
-../bin/configtxgen -profile TwoOrgChannel -outputCreateChannelTx ./config/assetschannel.tx -channelID assetschannel
+..$FABRICPATH/bin/configtxgen -profile TwoOrgChannel -outputCreateChannelTx ./config/mychannel.tx -channelID mychannel
+..$FABRICPATH/bin/configtxgen -profile TwoOrgChannel -outputCreateChannelTx ./config/assetschannel.tx -channelID assetschannel
 
 ## 生成组织关于通道的锚节点（主节点）交易
-../bin/configtxgen -profile TwoOrgChannel -outputAnchorPeersUpdate ./config/Org0MSPanchors.tx -channelID mychannel -asOrg Org0MSP
-../bin/configtxgen -profile TwoOrgChannel -outputAnchorPeersUpdate ./config/Org1MSPanchors.tx -channelID mychannel -asOrg Org1MSP
+..$FABRICPATH/bin/configtxgen -profile TwoOrgChannel -outputAnchorPeersUpdate ./config/Org0MSPanchors.tx -channelID mychannel -asOrg Org0MSP
+..$FABRICPATH/bin/configtxgen -profile TwoOrgChannel -outputAnchorPeersUpdate ./config/Org1MSPanchors.tx -channelID mychannel -asOrg Org1MSP
 
 ## 启动网络
 docker-compose -f docker-compose.yaml up -d
@@ -46,7 +47,7 @@ peer chaincode install -n assets -v 1.0 -l golang -p github.com/food
 ## 链码实例化
 peer chaincode instantiate -o orderer.zjucst.com:7050 -C assetschannel -n assets -l golang -v 1.0 -c '{"Args":["init"]}'
 
-## 实例化后可以启动sdk
+# 链码交互操作或者客户端操作
 
 ## 链码交互
 peer chaincode invoke -C assetschannel -n assets -c '{"Args":["userRegister", "user1", "user1"]}'
