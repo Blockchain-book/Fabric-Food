@@ -60,7 +60,7 @@ services:
       - CORE_PEER_LOCALMSPID=Org0MSP
       - CORE_PEER_ADDRESS=peer0.org0.zjucst.com:7051
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp # msp证书（节点证书）
-    #  - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=deploy_default
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=food_default
     ports:
       - 7051:7051 # grpc服务端口
       - 7053:7053 # eventhup端口
@@ -82,7 +82,7 @@ services:
       - CORE_PEER_LOCALMSPID=Org0MSP
       - CORE_PEER_ADDRESS=peer1.org0.zjucst.com:7051
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp # msp证书（节点证书）
-    #  - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=deploy_default
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=food_default
     ports:
       - 17051:7051
       - 17053:7053
@@ -104,7 +104,7 @@ services:
       - CORE_PEER_LOCALMSPID=Org1MSP
       - CORE_PEER_ADDRESS=peer0.org1.zjucst.com:7051
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp # msp证书（节点证书）
-    #  - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=deploy_default
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=food_default
     ports:
       - 27051:7051
       - 27053:7053
@@ -126,7 +126,7 @@ services:
       - CORE_PEER_LOCALMSPID=Org1MSP
       - CORE_PEER_ADDRESS=peer1.org1.zjucst.com:7051
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp # msp证书（节点证书）
-    #  - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=deploy_default
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=food_default
     ports:
       - 37051:7051
       - 37053:7053
@@ -148,7 +148,7 @@ services:
       - CORE_PEER_LOCALMSPID=Org1MSP
       - CORE_PEER_ADDRESS=peer2.org1.zjucst.com:7051
       - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/peer/msp # msp证书（节点证书）
-    #  - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=deploy_default
+      - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=food_default
     ports:
       - 47051:7051
       - 47053:7053
